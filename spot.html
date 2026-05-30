@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vendor — StreetBowl</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./input.css">
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { ink:'#1a0f0a', cream:'#fdf6ec', chili:'#e3431f', ember:'#f57c1f', palm:'#1f6b3a', mustard:'#f2b705' },
+    fontFamily: { display:['Fraunces','serif'], sans:['Inter','sans-serif'] },
+  } } }
+</script>
+</head>
+<body class="bg-cream text-ink font-sans">
+<div id="nav"></div>
+<main id="spot-root" class="max-w-6xl mx-auto px-5 py-10"></main>
+<div id="footer"></div>
+
+<script src="./data.js"></script>
+<script src="./app.js"></script>
+<script>
+  renderNav('explore');
+  renderFooter();
+  renderSpot();
+</script>
+</body>
+</html>

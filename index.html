@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>StreetBowl — Discover Nigeria's best street food</title>
+<meta name="description" content="StreetBowl helps you find authentic local street food vendors near you — from Lagos suya joints to Onitsha akara mamas." />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./input.css">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink:    '#1a0f0a',
+          cream:  '#fdf6ec',
+          chili:  '#e3431f',
+          ember:  '#f57c1f',
+          palm:   '#1f6b3a',
+          mustard:'#f2b705',
+        },
+        fontFamily: {
+          display: ['Fraunces','serif'],
+          sans:    ['Inter','sans-serif'],
+        },
+      },
+    },
+  }
+</script>
+</head>
+<body class="bg-cream text-ink font-sans antialiased">
+<div id="nav"></div>
+
+<!-- HERO -->
+<header class="relative overflow-hidden">
+  <div class="absolute inset-0 -z-10 bg-gradient-to-br from-cream via-cream to-amber-100"></div>
+  <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-chili/20 blur-3xl -z-10"></div>
+  <div class="absolute -bottom-32 -left-24 w-96 h-96 rounded-full bg-mustard/30 blur-3xl -z-10"></div>
+
+  <div class="max-w-6xl mx-auto px-5 pt-12 md:pt-20 pb-20 md:pb-32">
+    <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-ink/10 text-xs font-semibold tracking-wide uppercase animate-fade-up">
+      <span class="w-2 h-2 rounded-full bg-chili animate-pulse"></span>
+      Now mapping 412 vendors across Nigeria
+    </span>
+
+    <h1 class="mt-6 font-display font-black leading-[0.95] text-5xl md:text-7xl lg:text-8xl tracking-tight animate-fade-up [animation-delay:80ms]">
+      The best food in your city <span class="italic text-chili">isn't</span> on Google.
+    </h1>
+    <p class="mt-6 max-w-2xl text-lg md:text-xl text-ink/70 animate-fade-up [animation-delay:160ms]">
+      It's on a plastic stool under a fluorescent bulb. <strong>StreetBowl</strong> is the local guide to suya stands, bukas, mai shai corners and akara mamas — the spots your aunty already knows about.
+    </p>
+
+    <!-- SEARCH -->
+    <form action="./explore.html" class="mt-10 bg-white rounded-2xl shadow-xl shadow-chili/10 border border-ink/5 p-2 flex flex-col md:flex-row gap-2 max-w-3xl animate-fade-up [animation-delay:240ms]">
+      <label class="flex-1 flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-cream transition">
+        <svg class="w-5 h-5 text-ink/50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input name="q" placeholder="Search suya, jollof, asun, abacha…" class="w-full bg-transparent outline-none placeholder:text-ink/40" />
+      </label>
+      <label class="flex-1 flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-cream transition border-t md:border-t-0 md:border-l border-ink/5">
+        <svg class="w-5 h-5 text-ink/50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-7.5 8-13a8 8 0 1 0-16 0c0 5.5 8 13 8 13Z"/><circle cx="12" cy="9" r="3"/></svg>
+        <input name="city" placeholder="Lagos, Abuja, Enugu…" class="w-full bg-transparent outline-none placeholder:text-ink/40" />
+      </label>
+      <button class="bg-chili hover:bg-ink text-white font-semibold rounded-xl px-6 py-3 transition-all active:scale-95">
+        Find food
+      </button>
+    </form>
+
+    <div class="mt-6 flex flex-wrap gap-2 text-sm animate-fade-up [animation-delay:320ms]">
+      <span class="text-ink/60 mr-1">Try:</span>
+      <a href="./explore.html?q=suya" class="px-3 py-1 rounded-full border border-ink/15 hover:bg-ink hover:text-cream transition">🔥 Suya at midnight</a>
+      <a href="./explore.html?q=jollof" class="px-3 py-1 rounded-full border border-ink/15 hover:bg-ink hover:text-cream transition">🍚 Smoky party jollof</a>
+      <a href="./explore.html?q=akara" class="px-3 py-1 rounded-full border border-ink/15 hover:bg-ink hover:text-cream transition">🫘 Hot akara before 8am</a>
+      <a href="./explore.html?q=asun" class="px-3 py-1 rounded-full border border-ink/15 hover:bg-ink hover:text-cream transition">🌶️ Peppered asun</a>
+    </div>
+  </div>
+</header>
+
+<!-- FEATURED -->
+<section class="max-w-6xl mx-auto px-5 pb-24">
+  <div class="flex items-end justify-between mb-8">
+    <div>
+      <p class="text-chili font-semibold text-sm uppercase tracking-wider">This week</p>
+      <h2 class="font-display text-4xl md:text-5xl font-bold mt-1">Spots people are queuing for</h2>
+    </div>
+    <a href="./explore.html" class="hidden md:inline-block text-sm font-semibold underline underline-offset-4 decoration-chili decoration-2 hover:text-chili transition">See all spots →</a>
+  </div>
+  <div id="featured-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="bg-ink text-cream">
+  <div class="max-w-6xl mx-auto px-5 py-24">
+    <p class="text-mustard font-semibold text-sm uppercase tracking-wider">How StreetBowl works</p>
+    <h2 class="font-display text-4xl md:text-5xl font-bold mt-2 max-w-2xl">Word-of-mouth, but you can actually find the place.</h2>
+
+    <div class="mt-14 grid md:grid-cols-3 gap-8">
+      <div class="group">
+        <div class="text-6xl font-display font-black text-chili">01</div>
+        <h3 class="mt-3 text-2xl font-display font-bold">Tell us your craving</h3>
+        <p class="mt-2 text-cream/70">Search by dish, neighbourhood or vibe. "Iya Basira's bukka near Ojuelegba" works. So does "best fish pepper soup".</p>
+      </div>
+      <div class="group">
+        <div class="text-6xl font-display font-black text-mustard">02</div>
+        <h3 class="mt-3 text-2xl font-display font-bold">Get the real story</h3>
+        <p class="mt-2 text-cream/70">Opening hours (including "after midnight only"), what to order, what to skip, and how much you'll actually spend.</p>
+      </div>
+      <div class="group">
+        <div class="text-6xl font-display font-black text-palm">03</div>
+        <h3 class="mt-3 text-2xl font-display font-bold">Go eat. Then review.</h3>
+        <p class="mt-2 text-cream/70">Leave a note for the next person. Help your favourite mama get the customers she deserves.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS / VIBE -->
+<section class="max-w-6xl mx-auto px-5 py-24 grid md:grid-cols-4 gap-8 text-center">
+  <div><div class="font-display font-black text-5xl text-chili">412</div><div class="text-ink/60 mt-2 text-sm uppercase tracking-wider">Verified vendors</div></div>
+  <div><div class="font-display font-black text-5xl text-ember">17</div><div class="text-ink/60 mt-2 text-sm uppercase tracking-wider">Cities covered</div></div>
+  <div><div class="font-display font-black text-5xl text-palm">8,206</div><div class="text-ink/60 mt-2 text-sm uppercase tracking-wider">Honest reviews</div></div>
+  <div><div class="font-display font-black text-5xl text-mustard">₦500</div><div class="text-ink/60 mt-2 text-sm uppercase tracking-wider">Average plate</div></div>
+</section>
+
+<div id="footer"></div>
+
+<script src="./data.js"></script>
+<script src="./app.js"></script>
+<script>
+  renderNav('home');
+  renderFooter();
+  renderFeatured(document.getElementById('featured-grid'));
+</script>
+</body>
+</html>
