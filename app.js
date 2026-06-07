@@ -13,7 +13,7 @@ function renderNav(active) {
       <div class="hidden md:flex items-center gap-8 text-sm font-semibold">
         <a href="./index.html"    class="${active==='home'?'text-chili':'text-ink/70'} hover:text-chili transition">Home</a>
         <a href="./explore.html" class="${active==='explore'?'text-chili':'text-ink/70'} hover:text-chili transition">Explore</a>
-        <a href="./index.html#how-it-works" class="text-ink/70 hover:text-chili transition">How it works</a>
+       
         <a href="./explore.html" class="bg-ink hover:bg-chili text-cream rounded-full px-4 py-2 transition">Find food</a>
       </div>
       <button id="hamburger" class="md:hidden p-2 -mr-2" aria-label="Open menu">
@@ -31,9 +31,9 @@ function renderNav(active) {
     <div class="px-5 py-10 flex flex-col gap-6 text-2xl font-display font-bold">
       <a href="./index.html"    class="hover:text-chili transition">Home</a>
       <a href="./explore.html" class="hover:text-chili transition">Explore spots</a>
-      <a href="./index.html#how-it-works" class="hover:text-chili transition">How it works</a>
+     
       <a href="./explore.html" class="mt-4 inline-block bg-chili text-white rounded-full px-6 py-3 text-base text-center">Find food near me</a>
-    </div>
+    </div><
   </div>`;
   const mob = document.getElementById('mobile-nav');
   document.getElementById('hamburger').onclick = () => mob.classList.add('open');
@@ -167,26 +167,28 @@ function renderSpot() {
   root.innerHTML = `
     <a href="./explore.html" class="inline-flex items-center gap-1 text-sm text-ink/60 hover:text-chili transition">← Back to explore</a>
 
-    <div class="mt-4 grid lg:grid-cols-5 gap-8">
-      <div class="lg:col-span-3">
-        <div class="relative rounded-3xl overflow-hidden bg-gradient-to-br ${spot.color} aspect-[4/3] animate-pop">
-          ${spot.image
-            ? `<img src="${spot.image}" alt="${spot.name}" class="absolute inset-0 w-full h-full object-cover" />`
-            : `<div class="absolute inset-0 grid place-items-center text-[180px] md:text-[240px]">${spot.emoji}</div>`}
-          <div class="absolute top-4 left-4 flex gap-2">
-            <span class="bg-white/90 px-3 py-1 rounded-full text-xs font-semibold">${spot.type}</span>
-            <span class="bg-ink/90 text-cream px-3 py-1 rounded-full text-xs font-semibold">${spot.price}</span>
+    <div class="mt-4 grid lg:grid-cols-12 gap-10 items-start">
+      <div class="lg:col-span-5">
+        <div class="bg-white rounded-3xl p-3 shadow-xl border border-ink/5 animate-pop">
+          <div class="relative rounded-2xl overflow-hidden bg-gradient-to-br ${spot.color} aspect-[4/3]">
+            ${spot.image
+              ? `<img src="${spot.image}" alt="${spot.name}" class="absolute inset-0 w-full h-full object-cover" />`
+              : `<div class="absolute inset-0 grid place-items-center text-[120px] md:text-[160px]">${spot.emoji}</div>`}
+            <div class="absolute top-3 left-3 flex gap-2">
+              <span class="bg-white/90 px-3 py-1 rounded-full text-xs font-semibold">${spot.type}</span>
+              <span class="bg-ink/90 text-cream px-3 py-1 rounded-full text-xs font-semibold">${spot.price}</span>
+            </div>
           </div>
         </div>
 
-        <div class="grid grid-cols-3 gap-3 mt-3">
+        <div class="grid grid-cols-3 gap-3 mt-4">
           ${[1,2,3].map(()=> spot.image
-            ? `<div class="aspect-square rounded-xl overflow-hidden"><img src="${spot.image}" alt="${spot.name}" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition" /></div>`
+            ? `<div class="aspect-square rounded-xl overflow-hidden shadow-md border border-ink/5"><img src="${spot.image}" alt="${spot.name}" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition" /></div>`
             : `<div class="aspect-square rounded-xl bg-gradient-to-br ${spot.color} grid place-items-center text-4xl opacity-70">${spot.emoji}</div>`).join('')}
         </div>
       </div>
 
-      <div class="lg:col-span-2">
+      <div class="lg:col-span-7">
         <p class="text-chili font-semibold text-sm uppercase tracking-wider">${spot.area} · ${spot.city}</p>
         <h1 class="font-display font-black text-4xl md:text-5xl mt-2 leading-tight">${spot.name}</h1>
         <p class="mt-3 text-lg text-ink/70">${spot.tagline}</p>
